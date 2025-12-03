@@ -420,9 +420,15 @@ def periodic_update(n_intervals, target, drone, path, mission):
                                     name="Drone", marker=dict(size=12, color="#e67e22")))
         fig_xy.add_trace(go.Scatter(x=[new_target["x"]], y=[new_target["y"]], mode="markers",
                                     name="Target", marker=dict(symbol="x", size=12, color="#c0392b")))
-        fig_xy.add_trace(go.Scatter(x=[v["x"] for v in SQUARES.values()], y=[v["y"] for v in SQUARES.values()],
-                                    mode="markers+text", text=list(SQUARES.keys()),
-                                    textposition="top center", marker=dict(size=10, color="#27ae60")))
+        fig_xy.add_trace(go.Scatter(
+            x=[v["x"] for v in SQUARES.values()],
+            y=[v["y"] for v in SQUARES.values()],
+            mode="markers+text",
+            name="Quadrados",
+            text=list(SQUARES.keys()),
+            textposition="top center",
+            marker=dict(size=12, color="#27ae60", symbol="square")
+        ))
 
     fig_z = go.Figure()
     fig_z.add_trace(go.Scatter(
